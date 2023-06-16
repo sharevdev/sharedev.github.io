@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link href="../css/main.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="../function/profiles.js"></script>
+    <script>
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const name = urlParams.get("id");
+
+      const devtools = function () {};
+
+      document.addEventListener("readystatechange", () => {
+        if (document.readyState == "complete") {
+          devtools.toString = function () {
+            if (this.opened) {
+              window.location.replace("https://sharevapp.softr.app/");
+            } else {
+              this.opened = true;
+            }
+
+            console.log("%c", devtools);
+          };
+
+          switch (name) {
+            case "gg":
+              document.getElementById("ctk").hidden = true;
+              document.getElementById("scw").hidden = true;
+              break;
+            case "ctk":
+              document.getElementById("gg").hidden = true;
+              document.getElementById("scw").hidden = true;
+              break;
+            case "scw":
+              document.getElementById("gg").hidden = true;
+              document.getElementById("ctk").hidden = true;
+              break;
+            default:
+              document.getElementById("gg").hidden = true;
+              document.getElementById("ctk").hidden = true;
+              document.getElementById("scw").hidden = true;
+              break;
+          }
+        }
+      });
+    </script>
+  </head>
+  <body class="name-card-bg padding-all">
+    <div id="padding" class="padding-all">
+      <div class="gavin card profileparent" id="gg">
+        <div class="container-fluid name-card-bg" id="gg-body">
+          <img src="../assets/namecard/gg/1.png" />
+        </div>
+      </div>
+      <div class="john container-fluid padding-all" id="ctk">
+        <div class="container padding-all" id="ctk-body">
+          <div class="row">
+            <div class="col">
+              <img src="../assets/namecard/ctk/1.png" class="name-card-size" />
+            </div>
+            <div class="col">
+              <img src="../assets/namecard/ctk/2.png" class="name-card-size" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bwei container-fluid padding-all" id="scw">
+        <div class="container padding-all" id="ctk-body">
+          <div class="row">
+            <div class="col">
+              <img src="../assets/namecard/scw/1.png" class="name-card-size" />
+            </div>
+            <div class="col">
+              <img src="../assets/namecard/scw/2.png" class="name-card-size" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
